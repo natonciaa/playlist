@@ -9,7 +9,7 @@ public class CreatePlaylistUseCase {
     private final PlaylistRepository playlistRepository;
 
 
-    public Playlist execute(Playlist playlist) {
+    public Playlist save(Playlist playlist) {
         return playlistRepository.save(playlist);
     }
 }

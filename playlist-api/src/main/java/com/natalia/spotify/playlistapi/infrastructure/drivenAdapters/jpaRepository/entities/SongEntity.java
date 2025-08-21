@@ -1,4 +1,4 @@
-package com.natalia.spotify.playlistapi.infrastructure.persistence;
+package com.natalia.spotify.playlistapi.infrastructure.drivenAdapters.jpaRepository.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
