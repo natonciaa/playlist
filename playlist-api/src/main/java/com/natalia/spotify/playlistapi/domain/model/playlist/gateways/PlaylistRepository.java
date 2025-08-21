@@ -9,6 +9,6 @@ public interface PlaylistRepository {
     Playlist save(Playlist playlist);
     List<Playlist> findAll();
     Optional<Playlist> findByName(String nombre);
-    void deleteByName(String nombre);
+    boolean deleteByName(String nombre);
 }
 

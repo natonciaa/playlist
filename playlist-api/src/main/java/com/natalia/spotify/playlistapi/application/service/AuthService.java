@@ -1,25 +1,26 @@
 package com.natalia.spotify.playlistapi.application.service;
 
-import com.natalia.spotify.playlistapi.domain.model.user.User;
-import com.natalia.spotify.playlistapi.infrastructure.drivenAdapters.jpaRepository.repositories.UserRepository;
 import com.natalia.spotify.playlistapi.infrastructure.security.JwtUtil;
 import lombok.RequiredArgsConstructor;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import java.util.HashMap;
+import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
 public class AuthService {
 
-    private final UserRepository userRepository;
     private final JwtUtil jwtUtil;
 
-    public String login(String username, String password) {
-        Optional<User> userOpt = userRepository.findByUsername(username);
+    private final Map<String, String> users = new HashMap<>() {{
+        put("admin", "admin123");
+    }};
 
-        if (userOpt.isPresent() && userOpt.get().getPassword().equals(password)) {
+    public String login(String username, String password) {
+        String storedPassword = users.get(username);
+
+        if (storedPassword != null && storedPassword.equals(password)) {
             return jwtUtil.generateToken(username);
         }
 

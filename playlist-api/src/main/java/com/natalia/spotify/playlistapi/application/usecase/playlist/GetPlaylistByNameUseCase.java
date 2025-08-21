@@ -1,4 +1,4 @@
-package com.natalia.spotify.playlistapi.application.usecase;
+package com.natalia.spotify.playlistapi.application.usecase.playlist;
 
 import com.natalia.spotify.playlistapi.domain.model.playlist.Playlist;
 import com.natalia.spotify.playlistapi.domain.model.playlist.gateways.PlaylistRepository;
@@ -10,7 +10,7 @@ import java.util.Optional;
 public class GetPlaylistByNameUseCase {
     private final PlaylistRepository playlistRepository;
 
-    public Optional<?> getByName(String nombre) {
+    public Optional<Playlist> getByName(String nombre) {
         return playlistRepository.findByName(nombre);
     }
 }

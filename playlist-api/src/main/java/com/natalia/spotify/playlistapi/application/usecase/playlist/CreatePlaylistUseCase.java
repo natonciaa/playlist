@@ -1,4 +1,4 @@
-package com.natalia.spotify.playlistapi.application.usecase;
+package com.natalia.spotify.playlistapi.application.usecase.playlist;
 
 import com.natalia.spotify.playlistapi.domain.model.playlist.Playlist;
 import com.natalia.spotify.playlistapi.domain.model.playlist.gateways.PlaylistRepository;

@@ -1,4 +1,4 @@
-package com.natalia.spotify.playlistapi.infrastructure.drivenAdapters.jpaRepository.adapters;
+package com.natalia.spotify.playlistapi.infrastructure.drivenAdapters.adapters.playlist;
 
 
 import com.natalia.spotify.playlistapi.domain.model.playlist.Playlist;
@@ -36,9 +36,11 @@ public class PlaylistRepositoryAdapter implements PlaylistRepository {
         return jpaRepo.findById(nombre).map(p -> mapper.map(p, Playlist.class));
     }
 
-    @Override
-    public void deleteByName(String nombre) {
-        jpaRepo.deleteById(nombre);
+    public boolean deleteByName(String name) {
+        return jpaRepo.findByNombre(name).map(entity -> {
+            jpaRepo.delete(entity);
+            return true;
+        }).orElse(false);
     }
 
 }

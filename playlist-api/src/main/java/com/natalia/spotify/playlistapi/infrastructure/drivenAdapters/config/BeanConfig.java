@@ -1,4 +1,4 @@
-package com.natalia.spotify.playlistapi.infrastructure.drivenAdapters.jpaRepository.config;
+package com.natalia.spotify.playlistapi.infrastructure.drivenAdapters.config;
 
 import org.reactivecommons.utils.ObjectMapper;
 import org.reactivecommons.utils.ObjectMapperImp;
